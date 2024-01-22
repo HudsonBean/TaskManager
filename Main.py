@@ -23,8 +23,10 @@ def verify(option):
             match userInput.lower():
                 case "y" | "yes":
                     print("yes")
+                    return True
                 case "n" | "no":
                     print("no")
+                    return False
                 
 
 def Main():
