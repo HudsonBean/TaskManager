@@ -1,8 +1,31 @@
 # Task manager
 
+#Imports
+import os
+
+#Default Functions
+clear = lambda: os.system('clear')
+
+#Main
+
+Tasks = {
+    0: [],
+    1: []
+}
+
 def createNewTask():
     while (True):
         userInput = input("What will the name of the new task be?\n>")
+        # Validity check
+        if (len(userInput) <= 0): 
+            print("Please provide a valid name for the task!\n\n\n")
+            continue;
+        else:
+            taskName = userInput;
+            break;
+    # print(taskName + " !")
+        
+        
         
     
 def viewAllTasks():
@@ -22,10 +45,8 @@ def verify(option):
             # check options
             match userInput.lower():
                 case "y" | "yes":
-                    print("yes")
                     return True
                 case "n" | "no":
-                    print("no")
                     return False
                 
 
