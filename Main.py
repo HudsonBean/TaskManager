@@ -3,15 +3,22 @@
 #Imports
 import os
 
-#Default Functions
+#Functions
 clear = lambda: os.system('clear')
+
+
+#Classes
+class Task: 
+    def __init__(self, name, priority):
+        self.name = name
+        self.priority = priority
+    
+
 
 #Main
 
-Tasks = {
-    0: [],
-    1: []
-}
+tasks = { }
+
 
 def createNewTask():
     while (True):
@@ -22,11 +29,20 @@ def createNewTask():
             continue;
         else:
             taskName = userInput;
+            while (True):
+                userInput = input("What is the priority of '" + taskName + "'?\n>")
+                # Validity check
+                if (len(userInput) <= 0 or userInput.isnumeric() == False or int(userInput) <= 0):
+                    print("Please provide a valid number for the priority. 1 being first priority!")
+                    continue
+                else:
+                    # Create new task
+                    tasks[taskName] = Task(taskName, userInput)
+                    clear()
+                    Main()
+                    break;
             break;
-    # print(taskName + " !")
-        
-        
-        
+    # print(taskName + " !")             
     
 def viewAllTasks():
     print("View All Task")
